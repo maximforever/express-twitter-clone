@@ -1,0 +1,51 @@
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.floor{
+    width: 100px;
+    height: 100px;
+    background: #96f9ff;
+    border: 1px solid black;
+    display: block;
+}
+
+.waiting-area{
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    display: block;
+}
+
+.controls{
+    text-align: center;
+    margin-top: 5vh;
+    padding: 3vh;
+}
+
+.floor-button{
+   
+}
+
+.floor-selector{
+    text-align: center;
+    margin-top: 3vh;
+}
+
+.active{
+    background: #20b4bc;
+}
+
+.selected{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.person{
+    position: relative;
+}
+
+button {
+    width: 10vw;
+}
