@@ -1,7 +1,8 @@
 var run = true;
-var NUM_FLOORS = 6;
+var NUM_FLOORS = 10;
 var currentFloor = 1;
 var destination = 1;
+var moveList = [];
 var moving = false;
 
 
@@ -19,38 +20,44 @@ function main(){
         mainLoop();
     }, 1000);
 
-    $(".floor").click(function(){
-        if(!moving){
-            var id = $(this).attr("id");
-            destination = id;
-            console.log("destination is now: " +  destination);  
-        }
-        
-    });
 
     $(".floor-button").click(function(){
-        if(!moving){
-            var id = $(this).attr("id");
-            destination = id;
+
+        var id = $(this).attr("id");
+
+        if(moveList.indexOf(id) == -1){
+            moveList.push(id);
             $(this).addClass("selected");
+            $("#array").text(moveList);
         }
-        
     });
 
 }
 
 function mainLoop(){
 
-    if(destination != currentFloor){
-        moving = true;
-        if(destination > currentFloor){
-        up();
-        } else if(destination < currentFloor){
-            down();
-        }
+    if(moveList.length > 0){
+
+            console.log("Floors: " + moveList);
+            moving = true;
+            destination = moveList[0];
+
+
+            if(destination > currentFloor){
+                up();
+            } else if(destination < currentFloor){
+                down();
+            } else {
+                moveList.splice(0,1);       // remove the floor we just arrived to from the list
+                $("#array").text(moveList);
+                $("#" + currentFloor).removeClass("selected"); 
+            } 
+        
     } else {
+        console.log("No next floor selected");
         moving = false;
-        $(".floor-button").removeClass("selected");
+         $(".floor-button").removeClass("selected"); 
+        
     }
 }
 
@@ -69,6 +76,8 @@ function initialize(){
             $("#1").addClass("active");
         }
     }
+
+    $(".controls").append("<br><p> Next floors: <span  id = 'array'>" + moveList + "</span></p>");
 
     var height = $(window).height()/NUM_FLOORS - 10;
     $(".floor").height(height + "px").width(height + "px");
@@ -89,19 +98,6 @@ function down(){
     $("#" + currentFloor).addClass("active");
 }
 
-$("#move-up").click(function(){
-    if(destination<NUM_FLOORS){
-        destination += 1;
-        console.log("destination is now: " +  destination);  
-    }
-});
-
-$("#move-down").click(function(){
-    if(destination>1){
-        destination -= 1;
-        console.log("destination is now: " +  destination);  
-    }
-});
 
 
 
