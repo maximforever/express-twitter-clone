@@ -2,17 +2,18 @@
 
 <% if (entries.length) { %>
 	<% entries.forEach(function(entry) { %>
+
 	<div class = "panel panel-default">
 		<div class = "panel-heading">
-			<div class = "text-muted-pull-right">
+			<div class = "text-muted pull-right">
 				<%= entry.published %>
 			</div>
-		
 			<%= entry.title %>
 		</div>
 		<div class = "panel-body">
-			<%= entry.body %>
+			<%= entry.content %>
 		</div>
+	</div>
 <% })} else { %>
 	No tweets. <a href="/new-entry">Add one!</a>
 <% } %>
