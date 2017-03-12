@@ -52,6 +52,7 @@ function main(){
 		if(floorQueue.indexOf(nextFloor) == -1 && el.floor !== nextFloor){
 				floorQueue.push(Number($(this).attr("id")));				// attr("id") is a string, I think - so we need to coerce it into a number.
 				$(this).addClass("selected");
+				v
 		}
 	});
 
@@ -175,6 +176,13 @@ function refresh(){		// this should only handle the visual updates
 
 	// the LAST thing we want to do is denote where our elevator is
 	$("#floor-" + el.floor).addClass("at-floor"); 
+}
+
+
+function getAllOutsideFloors(){					// gets 
+
+
+
 }
 
 
