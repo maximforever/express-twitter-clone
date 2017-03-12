@@ -35,10 +35,12 @@ app.get("/", function(request, response){
 
 
 app.get("/new-entry", function(request, response){
+	console.log("logging - getting the new entry page");
 	response.render("new-entry");
 })
 
 app.post("/new-entry", function(request, response){
+
 	if (!request.body.title || !request.body.body) {
 		response.status(400).send("Entries must have a title and a body");
 		return;

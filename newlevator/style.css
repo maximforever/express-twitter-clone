@@ -1,0 +1,48 @@
+.floor{
+	border: 1px solid black;
+	width: 8vh;
+	height: 8vh;
+	display: inline-block;
+}
+
+.floor-panel{
+	border: 1px solid black;
+	width: 8vh;
+	height: 8vh;
+	display: inline-block;
+	padding: 3px;
+}
+
+.floor-container{
+	display: block;
+}
+
+.next-floor{
+	background: #FFFFB6;
+}
+
+.at-floor{
+	background: #1ab0db;
+}
+
+
+
+.call-button{
+	height: 50%;
+	border: 1px solid red;
+}
+
+.floor-button{
+	width: 8vh;
+	height: 4vh;
+	border: 2px solid #5D5D5D;
+	text-align: center;
+	background: #ACACAC;
+	margin-bottom: 1vh;
+}
+
+.selected {
+	background: #FFDD63;
+}
+
+
